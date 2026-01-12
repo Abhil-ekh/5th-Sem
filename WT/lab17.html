@@ -7,7 +7,7 @@
         <form>
             <fieldset style="width:auto;">
                 <legend>Personal Information</legend>
-                Name:<input type="text">
+                Name:<input type="text" style="width: 400px;">
                 <br><br>
                 Address:<input type="text">
                 <br><br>
@@ -15,8 +15,41 @@
                 <input type="radio" name="gender">Male
                 <input type="radio" name="gender">Female
                 <br><br>
+                Select your favorite color:<input type="color">
+                <br><br>
+                Date of Birth:<input type="date">
+                <br><br>
+                Upload Citizenship Photo:<input type="file">
+                <br><br>
+                Mobile Number:<input type="text">
+                <br><br>
+                Appointment Time: <input type="time">
+                <br><br>
             </fieldset>
-            
+            <fieldset style="width:auto;">
+                <legend align="right">Hobby and Education</legend>
+                Hobbies:
+                <input type="checkbox">Movies
+                <input type="checkbox">Playing Football
+                <input type="checkbox">Reading Noble
+                <input type="checkbox">
+                <br><br>
+                Education:
+                <select>
+                    <option>SEE</option>
+                    <option>SLC</option>
+                    <option>Bachelor</option>
+                    <option>Masters</option>
+                    <option>Doctrate</option>
+                </select>
+            </fieldset>
+            <hr style="height: 2px;" color="black">
+            Few Words:<br>
+            <textarea rows="6" cols="40"></textarea>
+            <br><br>
+            <button type="submit">send</button>
+            <button type="reset">clear</button>
+            <hr>
         </form>
     </body>
 </html>
