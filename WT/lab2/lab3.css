@@ -1,0 +1,22 @@
+h1{
+    color: darkblue;
+    text-align: center;
+}
+p{
+    color: gray; 
+    font-size: 16px;
+}
+div{
+    background-color: lightyellow; 
+    padding: 10px; 
+    border: 1px solid black;
+}
+button{
+    background-color: green; 
+    color: white; 
+    padding: 8px 12px;
+}
+span{
+    color: red; 
+    font-weight: bold;
+}
