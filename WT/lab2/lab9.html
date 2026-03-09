@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Combinator Selectors</title>
+  <style>
+
+    div p {
+      color: blue;
+    }
+
+    ul > li {
+      font-weight: bold;
+    }
+
+    h2 + p {
+      color: green;
+      font-style: italic;
+    }
+
+    /* d. General sibling selector (~) */
+    h3 ~ p {
+      background-color: greenyellow;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>CSS Combinator Selector Example</h1>
+
+  <div>
+    <p>This paragraph is inside a div (Descendant selector applied).</p>
+    <p>This paragraph is also a descendant of div.</p>
+  </div>
+  <p>This paragraph is outside the div.</p>
+
+  <hr>
+
+  <!-- Child selector example -->
+  <ul>
+    <li>Direct child list item 1</li>
+    <li>Direct child list item 2</li>
+    <ol>
+      <li>Nested list item (not a direct child)</li>
+    </ol>
+  </ul>
+
+  <hr>
+
+  <h2>Adjacent Sibling Heading</h2>
+  <p>This paragraph is immediately after h2</p>
+  <p>This paragraph is not adjacent to h2</p>
+
+  <hr>
+
+  <h3>General Sibling Heading</h3>
+  <p>This paragraph is a general sibling</p>
+  <div>
+    This is not a general sibling.
+  </div>
+  <p>This paragraph is also a general sibling</p>
+</body>
+</html>

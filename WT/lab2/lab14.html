@@ -1,13 +1,55 @@
 <html>
-    <head>
-        <style>
-            
-        </style>
-    </head>
-    <body>
-        <h5>Using individual margin property</h5>
-        <div class="single">
-            <p>This div element has a top margin of 100px, a right margin of 150px, a bottom margin of 120px, and a left margin of 80px.</p>
-        </div>
-    </body>
+<head>
+    <style>
+        div {
+            background-color: lightgray;
+            border: 1px solid black;
+        }
+
+        #single {
+            margin-top: 100px;
+            margin-right: 150px;
+            margin-bottom: 120px;
+            margin-left: 80px;
+        }
+
+        #two {
+            margin: 20px 40px;
+        }
+
+        #three {
+            margin: 10px 20px 30px;
+        }
+
+        #four {
+            margin: 40px 30px 20px 10px;
+        }
+
+        #inherit {
+            margin: inherit;
+        }
+
+        #auto {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Using individual margin properties</h1>
+    <div id="single">Single value margin.
+    </div>
+    <div id="two">Two value margin.
+    </div>
+    <div id="three">Three value margin.
+    </div>
+    <div id="four">Four value margin.
+    </div>
+    <div id="auto">Auto margin.
+    </div>
+    <div id="inherit">Inherit margin
+    </div>
+
+</body>
+
 </html>

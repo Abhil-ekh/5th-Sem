@@ -1,0 +1,59 @@
+<html>
+<head>
+    <style>
+        p[title] { 
+            color: red; 
+        }
+        div[data-role="admin"] {
+            color:blue;
+        }
+
+
+        p[class~="highlight"] {
+            color: green;
+            font-weight: bold;
+        }
+
+        p[lang|="en"] {
+            color: blue;
+        }
+
+        a[href^="https"] {
+            color: darkorange;
+        }
+
+        img[src$=".jpg"] {
+            border: 3px solid black;
+        }
+
+        div[class*="box"] {
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Attribute Selector</h1>
+
+    <p title="hello">CSS [attribute] Selector</p>
+
+    <p title="world">CSS [attribute] Selector for different title</p>
+
+    <div data-role="admin">CSS [attribute="value"] Selector</div>
+
+    <p class="text highlight">CSS [attribute~="value"] Selector</p>
+
+    <p lang="en-US">CSS [attribute|="value"] Selector</p>
+
+    <a href="https://example.com">CSS [attribute|^"value"] Selector</a><br><br>
+
+    <img src="batman.jpg" alt="Sample Image" width="150"><br><br>
+
+    <div class="content-box">
+        CSS [attribute*="value"] Selector
+    </div>
+
+</body>
+</html>
