@@ -1,100 +1,110 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <vector>
+// Lab 4: Implement the Vernam cipher encryption and decryption program using XOR-based logic.
+#include <bits/stdc++.h>
 using namespace std;
 
-// Convert a byte to 8-bit binary string (e.g., 65 -> 01000001)
-string bin8(unsigned char x) {
-    string s = "";
-    for (int i = 7; i >= 0; i--) {
-        s += ((x >> i) & 1) ? '1' : '0';
-    }
+string normalizeAZ(const string& s) {
+    string t;
+    for(char ch : s)
+        if(isalpha((unsigned char)ch))
+            t.push_back(toupper(ch));
+    return t;
+}
+
+string toBinary(unsigned char x) {
+    string s;
+    for(int i = 7; i >= 0; i--)
+        s += (x >> i & 1) + '0';
     return s;
 }
 
+void vernam(vector<int>& nums, string& res, const string& key, bool enc) {
+    cout << endl
+         << "Step-by-step XOR :" << endl
+         << endl;
+    string border = "--------------------------------------------------";
+    cout << border << endl
+         << (enc ? "| P |  P_bin   | K |  K_bin   | C_num |  C_bin   |"
+                 : "| C_num |  C_bin   | K |  K_bin   | P |  P_bin   |")
+         << endl
+         << border << endl;
+
+    for(int i = 0, n = enc ? res.size() : nums.size(); i < n; i++) {
+        unsigned char T = enc ? res[i] : nums[i], K = key[i], R = T ^ K;
+
+        if(enc)
+            cout << "| " << T << " | " << toBinary(T) << " | " << K
+                 << " | " << toBinary(K) << " |  " << setw(5) << left << (int)R
+                 << "| " << toBinary(R) << " |" << endl,
+                nums.push_back(R);
+        else
+            cout << "|  " << setw(5) << left << nums[i] << "| " << toBinary(T)
+                 << " | " << K << " | " << toBinary(K) << " | " << R
+                 << " | " << toBinary(R) << " |" << endl,
+                res += (char)R;
+    }
+    cout << border << endl;
+}
+
 int main() {
-    cout << "Vernam Cipher (Binary XOR)\n";
-    cout << "1) Encrypt\n2) Decrypt\nChoose: ";
     int choice;
+    string text, key;
+    vector<int> nums;
+
+    cout << "Vernam Cipher\n1. Encrypt\n2. Decrypt\nEnter your choice : ";
     cin >> choice;
     cin.ignore();
 
-    if (choice == 1) {
-        string pt, key;
-        cout << "Enter plaintext: ";
-        getline(cin, pt);
-        cout << "Enter key (same length): ";
+    if(choice == 1) {
+        cout << endl
+             << "Enter text : ";
+        getline(cin, text);
+        text = normalizeAZ(text);
+        cout << "Enter key (length " << text.size() << ") : ";
         getline(cin, key);
+        key = normalizeAZ(key);
 
-        if (pt.size() != key.size()) {
-            cout << "Error: Key length must equal plaintext length.\n";
-            return 0;
-        }
+        if(text.empty() || key.size() != text.size())
+            return cout << endl
+                        << "Invalid input." << endl,
+                   0;
 
-        cout << "\nStep-by-step XOR (8-bit):\n";
-        cout << "P_char  P_bin       K_char  K_bin       C_bin\n";
+        vernam(nums, text, key, true);
 
-        vector<int> cipherNums;
-
-        for (int i = 0; i < (int)pt.size(); i++) {
-            unsigned char P = (unsigned char)pt[i];
-            unsigned char K = (unsigned char)key[i];
-            unsigned char C = (unsigned char)(P ^ K);   // XOR
-
-            cout << "  " << pt[i] << "     " << bin8(P)
-                 << "   " << key[i] << "     " << bin8(K)
-                 << "   " << bin8(C) << "\n";
-
-            cipherNums.push_back((int)C); // store as number
-        }
-
-        cout << "\nCiphertext (numbers): ";
-        for (int x : cipherNums) cout << x << " ";
-        cout << "\n\n(Use these numbers for Decrypt option)\n";
+        cout << endl
+             << "Ciphertext : ";
+        for(int x : nums)
+            cout << x << " ";
     }
-    else if (choice == 2) {
-        cout << "Enter ciphertext numbers (space separated): ";
-        string line;
-        getline(cin, line);
+    else if(choice == 2) {
+        cout << endl
+             << "Enter ciphertext (space-separated numbers) : ";
+        getline(cin, text);
 
-        vector<int> cipherNums;
-        stringstream ss(line);
-        int val;
-        while (ss >> val) cipherNums.push_back(val);
+        stringstream ss(text);
+        for(int x; ss >> x;)
+            nums.push_back(x);
 
-        string key;
-        cout << "Enter key (same length as number count): ";
+        cout << "Enter key (length " << nums.size() << ") : ";
         getline(cin, key);
+        key = normalizeAZ(key);
 
-        if (key.size() != cipherNums.size()) {
-            cout << "Error: Key length must equal number of cipher bytes.\n";
-            cout << "Cipher bytes = " << cipherNums.size()
-                 << ", Key length = " << key.size() << "\n";
-            return 0;
-        }
+        if(nums.empty() || key.size() != nums.size())
+            return cout << endl
+                        << "Invalid input." << endl,
+                   0;
 
-        cout << "\nStep-by-step XOR (8-bit):\n";
-        cout << "C_num  C_bin       K_char  K_bin       P_bin\n";
+        text.clear();
+        vernam(nums, text, key, false);
 
-        string pt = "";
-        for (int i = 0; i < (int)cipherNums.size(); i++) {
-            unsigned char C = (unsigned char)cipherNums[i];
-            unsigned char K = (unsigned char)key[i];
-            unsigned char P = (unsigned char)(C ^ K);   // XOR again
+        for(char& ch : text)
+            ch = tolower(ch);
 
-            cout << " " << (int)C << "    " << bin8(C)
-                 << "   " << key[i] << "     " << bin8(K)
-                 << "   " << bin8(P) << "\n";
-
-            pt.push_back((char)P);
-        }
-
-        cout << "\nPlaintext: " << pt << "\n";
+        cout << endl
+             << "Plaintext : " << text;
     }
-    else {
-        cout << "Invalid choice.\n";
-    }
+    else
+        cout << endl
+             << "Invalid choice.";
 
     return 0;
 }
