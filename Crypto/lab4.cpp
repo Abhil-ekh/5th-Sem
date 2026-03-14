@@ -1,20 +1,20 @@
+#include <cctype>
 #include <iostream>
 #include <string>
-#include <cctype>
 using namespace std;
 
 int fix(int x) {
-	x %= 26; 
-	if (x < 0) 
-		x += 26; 
-	return x; 
- }
+    x %= 26;
+    if(x < 0)
+        x += 26;
+    return x;
+}
 
 string cleanAZ(string s) {
     string t = "";
-    for (char ch : s) {
-        if (isalpha((unsigned char)ch)) 
-			t+= (char)toupper((unsigned char)ch);
+    for(char ch : s) {
+        if(isalpha((unsigned char)ch))
+            t += (char)toupper((unsigned char)ch);
     }
     return t;
 }
@@ -32,31 +32,31 @@ int main() {
     getline(cin, key);
 
     text = cleanAZ(text);
-    key  = cleanAZ(key);
+    key = cleanAZ(key);
 
-    if (text.empty() || key.empty()) {
+    if(text.empty() || key.empty()) {
         cout << "Text/Key cannot be empty (letters only).\n";
         return 0;
     }
 
     string result = "";
-    for (int i = 0; i < (int)text.size(); i++) {
+    for(int i = 0; i < (int)text.size(); i++) {
         int P = text[i] - 'A';
         int K = key[i % key.size()] - 'A';
 
         int out;
-        if (choice == 1)
-			out = fix(P + K);      
-        else            
-			out = fix(P - K);      
+        if(choice == 1)
+            out = fix(P + K);
+        else
+            out = fix(P - K);
 
         result += (char)('A' + out);
     }
 
-    if (choice == 1) 
-		cout << "\nCiphertext: " << result << "\n";
-    else             
-		cout << "\nPlaintext: "  << result << "\n";
+    if(choice == 1)
+        cout << "\nCiphertext: " << result << "\n";
+    else
+        cout << "\nPlaintext: " << result << "\n";
 
     return 0;
 }
