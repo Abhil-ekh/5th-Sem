@@ -1,0 +1,30 @@
+<html>
+    <body>
+        Enter first number:<input type="number" id="h1"><br>
+        Enter second number:<input type="number" id="h2"><br>
+        <button onclick="add()">Add</button>
+        <button onclick="sub()">Substract</button>
+        <button onclick="mul()">Multiply</button>
+        <p id="result"></p>
+        
+        <script>
+            var n1=document.getElementById("h1").value;
+            var n2=document.getElementById("h2").value;
+            function add() {
+                var n1=Number(document.getElementById("h1").value);
+                var n2=Number(document.getElementById("h2").value);
+                document.getElementById("result").innerHTML="Sum="+(n1+n2);
+            }     
+            function sub() {
+                var n1=Number(document.getElementById("h1").value);
+                var n2=Number(document.getElementById("h2").value);
+                document.getElementById("result").innerHTML="Difference="+ (n1-n2);
+            }      
+            function mul() {
+                var n1=Number(document.getElementById("h1").value);
+                var n2=Number(document.getElementById("h2").value);
+                document.getElementById("result").innerHTML="Product="+(n1*n2);
+            }    
+        </script>
+    </body>
+</html>

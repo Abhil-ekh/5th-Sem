@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <style>
+            #d1 {
+                background-color: red;
+                width: 200px;
+                height: 30px;
+            }
+            #d2 {
+                background-color: blue;
+                width: 200px;
+                height: 30px;
+            }
+            #d3 {
+                background-color: green;
+                width: 200px;
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="d1">
+            This is first division.
+        </div><br>
+        <div id="d2">
+            This is second division.
+        </div><br>
+        <div id="d3">
+            This is third division.
+        </div><br>
+        <button id="button">
+            Click me
+        </button>
+        <script>
+                const button=document.getElementById("button");
+                const div1=document.getElementById("d1");
+                const div2=document.getElementById("d2");
+                const div3=document.getElementById("d3");
+                button.addEventListener("click",function(){
+                    button.innerText="Clicked";
+                    div1.style.backgroundColor="blue";
+                    div2.style.backgroundColor="green";
+                    div3.style.backgroundColor="red";
+                    div1.style.border="2px solid green";
+                    div2.style.border="2px solid yellow";
+                    div3.style.border="2px solid blue";
+                    div1.style.borderRadius="30px";
+                    div2.style.borderRadius="30px";
+                });
+        </script>
+    </body>
+</html>

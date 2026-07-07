@@ -1,0 +1,19 @@
+<html>
+    <body>
+        Enter a string:<input type="text" id="str">
+        <button onclick="rev()">Reverse</button>
+        <p id="para"></p>
+
+        <script>
+            function rev(){
+            var str=document.getElementById("str").value;
+            var r="";
+
+            for(var i=str.length-1;i>=0;i--) {
+                r=r+str[i];
+            }
+        document.getElementById("para").innerHTML="Reverse String = "+r;
+    }
+        </script>
+    </body>
+</html>

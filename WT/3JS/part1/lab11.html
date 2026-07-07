@@ -1,0 +1,43 @@
+<html>
+<body>
+    <input type="text" id="first" placeholder="Enter a sentence">
+    <button onclick="len()">Get Length</button>
+    <button onclick="upper()">Convert to Uppercase</button>
+    <button onclick="lower()">Convert to Lowercase</button>
+    <br><br>
+    <input type="text" id="second" placeholder="Enter first name">
+    <input type="text" id="third" placeholder="Enter last name">
+    <button onclick="join()">Concat</button>
+    <br><br>
+    <input type="text" id="fourth" placeholder="Enter a sentence">
+    <input type="text" id="fifth" placeholder="Enter start index">
+    <input type="text" id="sixth" placeholder="Enter end index">
+    <button onclick="sli()">Slice</button>
+    <p id="para"></p>
+    <script>
+        function len() {
+            var str = document.getElementById("first").value;
+            document.getElementById("para").innerHTML = "Length of string="+str.length;
+        }
+        function upper() {
+            var str = document.getElementById("first").value;
+            document.getElementById("para").innerHTML = "Uppercase="+str.toUpperCase();
+        }
+        function lower() {
+            var str = document.getElementById("first").value;
+            document.getElementById("para").innerHTML = "Lowercase="+str.toLowerCase();
+        }
+        function join() {
+            var first = document.getElementById("second").value;
+            var last = document.getElementById("third").value;
+            document.getElementById("para").innerHTML ="Concatnated String="+ first + " " + last;
+        }
+        function sli() {
+            var text = document.getElementById("fourth").value;
+            var start = document.getElementById("fifth").value;
+            var end = document.getElementById("sixth").value;
+            document.getElementById("para").innerHTML = "Sliced text="+text.slice(start,end);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+<h2>JavaScript String Handling Functions</h2>
+<script>
+    var str1 = "Hello";
+    var str2 = "World";
+    document.write("str1 = Hello<br> str2 = World<br><br>");
+    document.write()
+    document.write("Length of str1: " + str1.length + "<br>");
+    document.write("Uppercase: " + str1.toUpperCase() + "<br>");
+    document.write("Lowercase: " + str1.toLowerCase() + "<br>");
+    var str3 = str1.concat("-", str2);
+    document.write("Concatenation: " + str3 + "<br>");
+    document.write("Character at position 1: " + str1.charAt(1) + "<br>");
+    document.write("Index of 'l' in str1: " + str1.indexOf("l") + "<br>");
+    document.write("Substring (1,4): " + str1.substring(1,4) + "<br>");
+    var newStr = str3.replace("World", "JavaScript");
+    document.write("After replace: " + newStr + "<br>");
+</script>
+</body>
+</html>

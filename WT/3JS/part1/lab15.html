@@ -1,0 +1,22 @@
+<html>
+    <body>
+            Enter first string:<input type="text" id="str">
+            Enter second string:<input type="text" id="str1">
+            <button onclick="equal()">Check</button>
+            <p id="para"></p>
+            <script>
+                function equal(){
+                    var str=document.getElementById("str").value;
+                    var str1=document.getElementById("str1").value;
+                    if(str===str1) {
+                        document.getElementById("para").innerHTML = str.toUpperCase();
+                    }
+                    else {
+                        document.getElementById("para").innerHTML ="The strings are not equal!";
+                    }
+
+                }
+
+            </script>
+    </body>
+</html>

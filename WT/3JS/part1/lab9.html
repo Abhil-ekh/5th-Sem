@@ -1,0 +1,16 @@
+<html>
+<head>
+    <script>
+        function pageLoaded() {
+            alert("Page has been loaded");
+        }
+        function pageResized() {
+            document.getElementById("msg").innerHTML="Window has been resized";
+        }
+    </script>
+</head>
+    <body onload="pageLoaded()" onresize="pageResized()">
+    <h3>Window Event Demonstration</h3>
+    <p id="msg"></p>
+</body>
+</html>

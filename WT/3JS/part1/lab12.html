@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <input type="text" id="sen" placeholder="Enter a sentence">
+        <input type="text" id="rep" placeholder="Enter word to replce">
+        <input type="text" id="newrep" placeholder="Enter replacement word">
+        <button onclick="replayce()">Replace</button>
+        <p id="para"></p>
+
+        <script>
+            function replayce(){
+                var str=document.getElementById("sen").value;
+                var str1=document.getElementById("rep").value;
+                var str2=document.getElementById("newrep").value;
+                document.getElementById("para").innerHTML="String after word replacement="+str.replace(str1,str2);
+            }
+        </script> 
+    </body>
+</html>
