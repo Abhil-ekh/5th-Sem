@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl"?>
+<store>
+    <item>
+        <name>Mango</name>
+        <price>200</price>
+    </item>
+    <item>
+        <name>Apple</name>
+        <price>150</price>
+    </item>
+    <item>
+        <name>Banana</name>
+        <price>200</price>
+    </item>
+</store>

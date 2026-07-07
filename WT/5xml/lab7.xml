@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl"?>
+<person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="lab7.xsd">
+    <student>
+        <name>Joe</name>
+        <age>17</age>
+        <pincode>1234</pincode>
+    </student>
+    <student>
+        <name>John123</name>
+        <age>20</age>
+        <pincode>12A4</pincode>
+    </student>
+</person>

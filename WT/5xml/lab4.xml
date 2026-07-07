@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl"?>
+<!DOCTYPE book [
+    <!ELEMENT book (title, author+, (chapter | publisher)*)>
+    <!ELEMENT title (#PCDATA)>
+    <!ELEMENT author (#PCDATA)>
+    <!ELEMENT chapter (#PCDATA)>
+    <!ELEMENT publisher (#PCDATA)>
+]>
+<book>
+    <title>XML Basics</title>
+    <author>Dan</author>
+    <author>Rick</author>
+    <chapter>Intro</chapter>
+    <chapter>Structure</chapter>
+</book>

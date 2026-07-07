@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl"?>
+<music>
+    <song>
+        <name>One</name>
+        <artist>Metallica</artist>
+        <playtime>7:45</playtime>
+    </song>
+    <song>
+        <name>Peruvian Coke</name>
+        <artist>Immortal Technique</artist>
+        <playtime>4:49</playtime>
+    </song>
+    <song>
+        <name>Jhhari ko Raat</name>
+        <artist>ALBATROSS</artist>
+        <playtime>5:11</playtime>
+    </song>
+</music>

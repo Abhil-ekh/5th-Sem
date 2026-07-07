@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl"?>
+<!DOCTYPE mail SYSTEM "mail.dtd">
+<mail>
+    <to>Ram</to>
+    <from>Sita</from>
+    <subject>Hello</subject>
+    <message>Abort!! Abort!!</message>
+</mail>
