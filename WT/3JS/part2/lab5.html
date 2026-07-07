@@ -1,0 +1,42 @@
+<html>
+    <body>
+    Enter Roll no:
+    <input type="number" id="roll"><br><br>
+    Enter Email:
+    <input type="email" id="mail"><br><br>
+    Enter Phone number:
+    <input type="number" id="num"><br><br>
+    Enter name:
+    <input type="text" id="name"><br><br>
+    <button onclick="submit()">Submit</button>
+    <p id="para"></p>
+    <script>
+        function submit(){
+        var roll = document.getElementById("roll").value;
+        var email = document.getElementById("mail").value;
+        var phone = document.getElementById("num").value; 
+        var name = document.getElementById("name").value;
+    var result=document.getElementById("para");
+
+        if(isNaN(roll)||roll=="") {
+            result.innerHTML="Roll should be number!";
+            return;
+        }
+        var pattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,3}$/;
+        if(!pattern.test(email)) {
+            result.innerHTML = "@ should not be on first position and after ‘.’ Only 2 or three character are allowed.";
+                return;
+        }
+        if(isNaN(phone)||phone=="") {
+            result.innerHTML="Phone number should be number!";
+            return
+        }
+        if(name=="") {
+            result.innerHTML="Name field shouldn't be empty";
+            return;
+        }
+        result.innerHTML="Form submitted successfully!";
+    }
+    </script>
+    </body>
+</html>

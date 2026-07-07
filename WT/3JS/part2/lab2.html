@@ -1,0 +1,35 @@
+<html>
+    <body>
+    <h3>Enter Details</h3>
+    Enter USername:
+    <input type="text" id="usern"><br><br>
+    Enter Password:
+    <input type="password" id="pass"><br><br>
+    Enter Phone number:
+    <input type="number" id="num"><br><br>
+    <button onclick="check()">Submit</button>
+    <p id="para"></p>
+    <script>
+        function check(){
+            var username = document.getElementById("usern").value;
+            var password = document.getElementById("pass").value;
+            var phone = document.getElementById("num").value;
+            if(username==""||password==""||phone==""){
+                document.getElementById("para").innerHTML="All fields are required!";
+                return;
+            }
+            if(password.length < 6){
+                document.getElementById("para").innerHTML = "Password must be at least 6 characters!";
+                return;
+            }
+
+            if(phone.length != 7 || isNaN(phone)){
+                document.getElementById("para").innerHTML = "Phone number must be exactly 7 digits!";
+                return;
+            }
+
+            document.getElementById("para").innerHTML = "Form submitted successfully!";
+        }
+    </script>
+    </body>
+</html>

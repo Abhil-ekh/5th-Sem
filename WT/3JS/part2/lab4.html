@@ -1,0 +1,92 @@
+<html>
+    <body>
+    Enter USername:
+    <input type="text" id="str"><br><br>
+    Enter Password:
+    <input type="password" id="pass"><br><br>
+    Reenter password:
+    <input type="password" id="pass2"><br><br>
+    Enter Phone number:
+    <input type="number" id="num"><br><br>
+    Enter Email:
+    <input type="email" id="mail"><br><br>
+    Gender:
+        <input type="radio" name="gender" id="male">male
+        <input type="radio" name="gender" id="female">female
+        <br><br>
+        Hobbies:
+        <input type="checkbox" name="hobby"> Reading
+        <input type="checkbox" name="hobby" > Sports
+        <input type="checkbox" name="hobby" > Music
+        <input type="checkbox" name="hobby" > Fishing
+        <input type="checkbox" name="hobby" > Skating
+        <br><br>
+        Country:
+        <select id="country">
+        <option value="">Select</option>
+        <option value="Nepal">Nepal</option>
+        <option value="India">India</option>
+        <option value="Bhutan">Bhutan</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="SriLanka">Sri Lanka</option>
+        </select>
+    <br>        
+    <button onclick="validate()">Submit</button>
+    <p id="para"></p>
+    <script>
+        function validate(){
+        var username = document.getElementById("str").value;
+        var password = document.getElementById("pass").value;
+        var password2 = document.getElementById("pass2").value;
+        var email = document.getElementById("mail").value;
+        var phone = document.getElementById("num").value;    
+        var result=document.getElementById("para");
+        let gender = document.querySelector('input[name="gender"]:checked');
+        var selectedgender=false;
+        if(username.length<2 || username.length>=20){
+                document.getElementById("para").innerHTML="Username should be between 2-20 characters!";
+                return;
+            }
+        if(password.length < 5){
+                document.getElementById("para").innerHTML = "Password must be at least 5 characters!";
+                return;
+            } 
+        if(password!=password2){
+                document.getElementById("para").innerHTML = "Passwords are not matching!";
+                return;
+            }
+        if(isNaN(phone)){
+            document.getElementById("para").innerHTML = "Phone numebr should be number only!";
+                return;
+        }
+        else if(phone.length!=10){
+            document.getElementById("para").innerHTML = "Phone numeber should be of 10 digits!";
+                return;
+        }
+        var pattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,3}$/;
+        if(!pattern.test(email)) {
+            document.getElementById("para").innerHTML = "@ should not be on first position and after ‘.’ Only 2 or three character are allowed.";
+                return;
+        }
+        
+        if (!gender) {
+            document.getElementById("para").innerHTML = "Please select a gender!";
+            return;
+        }
+        var hobbies=document.getElementsByName("hobby");
+        var count=0;
+        for(var i=0;i<hobbies.length;i++) {
+            if(hobbies[i].checked){
+                count++;
+            }
+        }       
+        var country=document.getElementById("country").value;
+        if(country=="") {
+            result.innerHTML="Please select a country!";
+            return;            
+        }
+        result.innerHTML="Form submittd successfully!";
+    }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+    <body>
+        Gender:
+        <input type="radio" name="gender" id="male">male
+        <input type="radio" name="gender" id="female">female
+        <br><br>
+        Hobbies:
+        <input type="checkbox" name="hobby"> Reading
+        <input type="checkbox" name="hobby" > Sports
+        <input type="checkbox" name="hobby" > Music
+        <input type="checkbox" name="hobby" > Fishing
+        <input type="checkbox" name="hobby" > Skating
+        <br><br>
+        Country:
+        <select id="country">
+        <option value="">Select</option>
+        <option value="Nepal">Nepal</option>
+        <option value="India">India</option>
+        <option value="Bhutan">Bhutan</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="SriLanka">Sri Lanka</option>
+    </select>
+    <br><br>
+    <button onclick="validate()">Submit</button>
+    <p id="para"></p>
+    <script>
+        function validate(){
+        var result=document.getElementById("para");
+        let gender = document.querySelector('input[name="gender"]:checked');
+        if (!gender) {
+            document.getElementById("para").innerHTML = "Please select a gender!";
+            return;
+        }
+        var hobbies=document.getElementsByName("hobby");
+        var count=0;
+        for(var i=0;i<hobbies.length;i++){
+            if(hobbies[i].checked){
+                count++;
+            }
+        }
+        if(count<2){
+            result.innerHTML="Atleast 2 hobbies should be selected!";
+            return;
+        }
+        var country=document.getElementById("country").value;
+        if(country==""){
+            result.innerHTML="Please select a country!";
+            return;
+        }
+        result.innerHTML="Form submittd successfully!";
+    }
+    </script>
+    </body>
+</html>

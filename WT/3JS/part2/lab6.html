@@ -1,0 +1,38 @@
+<html>
+    <body>
+        Enter username:
+        <input type="text" id="username"><br><br>
+        Enter password:
+        <input type="password" id="password"><br>
+        <button onclick="submit()">Submit</button>
+        <p id="para"></p>
+        <script>
+            function submit(){
+                var username=document.getElementById("username").value;
+                var password=document.getElementById("password").value;
+
+                if(username==""||password==""){
+                    document.getElementById("para").innerHTML="All fields are required!";
+                    return;
+                }
+                if(username==password){
+                    document.getElementById("para").innerHTML="Username and password cannot be the same!";
+                    return;
+                }
+                if(username.length<5){
+                    document.getElementById("para").innerHTML="Username must be at least 5 characters!";
+                    return;
+                }
+                if(password.length<5){
+                    document.getElementById("para").innerHTML="Password must be at least 5 characters!";
+                    return;
+                }
+                if(username!="nccsBim123"&&password!="nccsnccsKathmanduBim123"){
+                    document.getElementById("para").innerHTML="Invalid username or password!";
+                    return;
+                }
+                document.getElementById("para").innerHTML="Welcome to NCCS!";
+            }
+        </script>
+    </body>
+</html>

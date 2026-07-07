@@ -1,0 +1,41 @@
+<html>
+    <body>
+        Enter username:
+        <input type="text" id="username"><br><br>
+        Enter password:
+        <input type="password" id="password"><br><br>
+        Country:
+        <select id="country">
+        <option value="">Select</option>
+        <option value="Nepal">Nepal</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="China">China</option>
+        <option value="UK">UK</option>
+        </select>
+        <button onclick="submit()">Submit</button>
+        <p id="para"></p>
+        <script>
+            function submit(){
+                var username=document.getElementById("username").value;
+                var password=document.getElementById("password").value;
+                var country=document.getElementById("country").value;
+
+                if(username.length!=8) {
+                    document.getElementById("para").innerHTML="Username must be exactly 8 characters!";
+                    return;
+                }
+                var pattern=/^(?=.*[a-zA-Z])\d.*$/;
+                if(!pattern.test(password)) {
+                    document.getElementById("para").innerHTML="Password must start with number and contain alphanumeric characters  !";
+                    return;
+                }
+                if(country=="") {
+                    document.getElementById("para").innerHTML="Please select a country!";
+                    return;
+                }
+                document.getElementById("para").innerHTML="Form submitted successfully!";
+            }
+        </script>
+    </body>
+</html>

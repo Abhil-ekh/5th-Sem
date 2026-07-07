@@ -1,0 +1,23 @@
+<html>
+<body>
+    <h3>Enter Details</h3>
+    Enter String:
+    <input type="text" id="str"><br><br>
+    Enter Number:
+    <input type="number" id="num"><br><br>
+    <button onclick="check()">Submit</button>
+    <p id="result"></p>
+    <script>
+        function check(){
+            var str = document.getElementById("str").value;
+            var num = document.getElementById("num").value;
+            if(str === "JavaScript" && num == 1996) {
+                document.getElementById("result").innerHTML = "Welcome!";
+            } 
+            else {
+                document.getElementById("result").innerHTML = "Wrong input! Please re-enter string and number.";
+            }
+        }
+    </script>
+</body>
+</html>
